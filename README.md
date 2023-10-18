@@ -1,41 +1,26 @@
-# Simple Shell C Programming Task
-
-Project done by Aymane Mehdi and Henry Akinola
-
-This repository contains a basic implementation of a simple shell in the C programming language. The purpose of this project is to help you understand the fundamentals of how a shell works and to practice our C programming skills taught by ALX Africa. 
-
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Features](#features)
-- [General Requirement](#general_requirement)
-- [Compilation](#compilation)
-
-## Introduction
-
-A shell is a command-line interface that allows users to interact with an operating system by entering commands. This project implements a simplified version of a shell, demonstrating key concepts such as command parsing, execution, and basic error handling.
-
-## Features
-
-- Command parsing: Breaks user input into command and arguments.
-- Basic execution: Executes commands using system calls.
-- Error handling: Provides basic error messages for invalid commands.
-- Simple interactive loop: Continuously prompts for user input and executes commands.
-
-## General Requirement
-
-All your files will be compiled on Ubuntu 20.04 LTS using gcc, using the options -Wall -Werror -Wextra -pedantic -std=gnu89
-
-All your files should end with a new line.
-
-A README.md file, at the root of the folder of the project is mandatory.
-
-Your code should use the Betty style. It will be checked using betty-style.pl and betty-doc.pl
-
-All your header files should be include guarded.
-
-## Compilation
-
-Your shell will be compiled this way:
-
-gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+# 0x16. C - Simple Shell
+## Mandatory Tasks
+ - [x] 0. README, man, AUTHORS
+ - [x] 1. Betty would be proud
+ - [x] 2. Simple shell 0.1
+ - [x] 3. Simple shell 0.2
+ - [x] 4. Simple shell 0.3
+ - [x] 5. Simple shell 0.4
+ - [x] 6. Simple shell 1.0
+ - [x] 7. What happens when you type `ls -l \*.c` in the shell
+## Advanced Tasks
+ - [ ] 8. Test suite
+ - [ ] 9. Simple shell 0.1.1
+ - [ ] 10. Simple shell 0.2.1
+ - [ ] 11. Simple shell 0.4.1
+ - [ ] 12. Simple shell 0.4.2
+ - [ ] 13. setenv, unsetenv
+ - [ ] 14. cd
+ - [ ] 15. ;
+ - [ ] 16. && and ||
+ - [ ] 17. alias
+ - [ ] 18. Variables
+ - [ ] 19. Comments
+ - [ ] 20. help
+ - [ ] 21. history
+ - [ ] 22. File as input 
