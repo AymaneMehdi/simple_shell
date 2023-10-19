@@ -21,7 +21,8 @@ delimiters = " ";
 /** Count the number of words */
 for (i = 0; str[i] != '\0'; i++)
 {
-if (!is_delimiter(str[i], delimiters) && (is_delimiter(str[i + 1], delimiters) || str[i + 1] == '\0'))
+if (!is_delimiter(str[i], delimiters) && (is_delimiter(str[i + 1], delimiters)
+|| str[i + 1] == '\0'))
 numwords++;
 }
 
@@ -53,7 +54,7 @@ return (NULL);
 for (m = 0; m < k; m++)
 words[j][m] = str[i++];
 
- words[j][m] = '\0';
+words[j][m] = '\0';
 }
 
 words[j] = NULL;
