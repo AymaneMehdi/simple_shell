@@ -86,7 +86,8 @@ return (i);
  * node_starts_with - Returns the node whose string starts with a prefix.
  * @node: Pointer to the list head.
  * @prefix: The string to match at the beginning of node->str.
- * @c: The character to match immediately after the prefix (-1 for any character).
+ * @c: The character to match immediately after the prefix
+ * (-1 for any character).
  *
  * Return: The matching node or NULL if not found.
  */
