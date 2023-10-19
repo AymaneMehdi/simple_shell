@@ -31,11 +31,11 @@ info->cmd_buf_type = CMD_CHAIN;
 }
 else
 {
-return 0;
+return (0);
 }
 
 *p = j;
-return 1;
+return (1);
 }
 
 /**
@@ -77,10 +77,10 @@ char *p = _strchr(node->str, '=');
 if (p)
 {
 replace_string(&info->argv[0], _strdup(p + 1));
-return 1;
+return (1);
 }
 }
-return 0;
+return (0);
 }
 
 /**
@@ -89,7 +89,8 @@ return 0;
  *
  * Return: 1 if replaced, 0 otherwise
  */
-int replace_vars(info_t *info) {
+int replace_vars(info_t *info)
+{
 for (int i = 0; info->argv[i]; i++)
 {
 if (info->argv[i][0] == '$' && info->argv[i][1] != '\0')
@@ -99,12 +100,13 @@ char *env_value = _getenv(info, var_name);
 if env_value != NULL
 {
 replace_string(&info->argv[i], _strdup(env_value));
-} else {
+}
+else {
 replace_string(&info->argv[i], _strdup(""));
 }
 }
 }
-return 0;
+return (0);
 }
 
 /**
@@ -114,8 +116,9 @@ return 0;
  *
  * Return: 1 if replaced, 0 otherwise
  */
-int replace_string(char **old, char *new) {
+int replace_string(char **old, char *new)
+{
 free(*old);
 *old = new;
-return 1;
+return (1);
 }
