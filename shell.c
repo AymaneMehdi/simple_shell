@@ -1,112 +1,90 @@
 #include "shell.h"
+
 /**
-* main - carries out the read, execute then print output loop
-* @ac: argument count
-* @av: argument vector
-* @envp: environment vector
-*
-* Return: 0
-*/
+ * main - Simple Shell (Hsh)
+ * @argc: Argument Count
+ * @argv:Argument Value
+ * Return: Exit Value By Status
+ */
 
-int main(int ac, char **av, char *envp[])
+int main(__attribute__((unused)) int argc, char **argv)
 {
-	char *line = NULL, *pathcommand = NULL, *path = NULL;
-	size_t bufsize = 0;
-	ssize_t linesize = 0;
-	char **command = NULL, **paths = NULL;
-	(void)envp, (void)av;
-	if (ac < 1)
-		return (-1);
-	signal(SIGINT, handle_signal);
-	while (1)
+	char *input, **cmd;
+	int counter = 0, statue = 1, st = 0;
+
+	if (argv[1] != NULL)
+		read_file(argv[1], argv);
+	signal(SIGINT, signal_to_handel);
+	while (statue)
 	{
-		free_buffers(command);
-		free_buffers(paths);
-		free(pathcommand);
-		prompt_user();
-		linesize = getline(&line, &bufsize, stdin);
-		if (linesize < 0)
-			break;
-		info.ln_count++;
-		if (line[linesize - 1] == '\n')
-			line[linesize - 1] = '\0';
-		command = tokenizer(line);
-		if (command == NULL || *command == NULL || **command == '\0')
+		counter++;
+		if (isatty(STDIN_FILENO))
+			prompt();
+		input = _getline();
+		if (input[0] == '\0')
+		{
 			continue;
-		if (checker(command, line))
+		}
+		history(input);
+		cmd = parse_cmd(input);
+		if (_strcmp(cmd[0], "exit") == 0)
+		{
+			exit_bul(cmd, input, argv, counter);
+		}
+		else if (check_builtin(cmd) == 0)
+		{
+			st = handle_builtin(cmd, st);
+			free_all(cmd, input);
 			continue;
-		path = find_path();
-		paths = tokenizer(path);
-		pathcommand = test_path(paths, command[0]);
-		if (!pathcommand)
-			perror(av[0]);
+		}
 		else
-			execution(pathcommand, command);
+		{
+			st = check_cmd(cmd, input, counter, argv);
+
+		}
+		free_all(cmd, input);
 	}
-	if (linesize < 0 && flags.interactive)
-		write(STDERR_FILENO, "\n", 1);
-	free(line);
-	return (0);
+	return (statue);
 }
-
-#ifndef SHELL_H
-#define SHELL_H
-
-#include <stdarg.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <sys/stat.h>
-#include <time.h>
-#include <stdbool.h>
-
-/* environment variables */
-extern char **environ;
-extern __sighandler_t signal(int __sig, __sighandler_t __handler);
-
-/* handle built ins */
-int checker(char **cmd, char *buf);
-void prompt_user(void);
-void handle_signal(int m);
-char **tokenizer(char *line);
-char *test_path(char **path, char *command);
-char *append_path(char *path, char *command);
-int handle_builtin(char **command, char *line);
-void exit_cmd(char **command, char *line);
-
-void print_env(void);
-
-/* string handlers */
-int _strcmp(char *s1, char *s2);
-int _strlen(char *s);
-int _strncmp(char *s1, char *s2, int n);
-char *_strdup(char *s);
-char *_strchr(char *s, char c);
-
-void execution(char *cp, char **cmd);
-char *find_path(void);
-
-/* helper function for efficient free */
-void free_buffers(char **buf);
-
-struct builtin
+/**
+ * check_builtin - check builtin
+ *
+ * @cmd:command to check
+ * Return: 0 Succes -1 Fail
+ */
+int check_builtin(char **cmd)
 {
-	char *env;
-	char *exit;
-} builtin;
+	bul_t fun[] = {
+		{"cd", NULL},
+		{"help", NULL},
+		{"echo", NULL},
+		{"history", NULL},
+		{NULL, NULL}
+	};
+	int i = 0;
+		if (*cmd == NULL)
+	{
+		return (-1);
+	}
 
-struct info
+	while ((fun + i)->command)
+	{
+		if (_strcmp(cmd[0], (fun + i)->command) == 0)
+			return (0);
+		i++;
+	}
+	return (-1);
+}
+/**
+ * creat_envi - Creat Array of Enviroment Variable
+ * @envi: Array of Enviroment Variable
+ * Return: Void
+ */
+void creat_envi(char **envi)
 {
-	int final_exit;
-	int ln_count;
-} info;
+	int i;
 
-struct flags
-{
-	bool interactive;
-} flags;
-
-#endif /* SHELL_H */
+	for (i = 0; environ[i]; i++)
+		envi[i] = _strdup(environ[i]);
+	envi[i] = NULL;
+}
