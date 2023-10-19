@@ -10,7 +10,7 @@ info->arg = NULL;
 info->argv = NULL;
 info->path = NULL;
 info->argc = 0;
-info->fname = NULL; // Initialize other fields as needed
+info->fname = NULL; /** Initialize other fields as needed */
 }
 
 /**
