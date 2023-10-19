@@ -1,5 +1,5 @@
 #include "shell.h"
-#include <string.h> // Include the standard library for string functions
+#include <string.h> /** Include the standard library for string functions */
 
 /**
  * my_strncpy - Copy a string (up to n characters) from src to dest.
@@ -14,7 +14,8 @@ return strncpy(dest, src, n);
 }
 
 /**
- * my_strncat - Concatenate two strings (up to n characters) and store the result in dest.
+ * my_strncat - Concatenate two strings (up to n characters) and store
+ * the result in dest.
  * @dest: The destination string.
  * @src: The source string to concatenate.
  * @n: The maximum number of characters to concatenate.
