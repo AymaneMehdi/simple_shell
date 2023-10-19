@@ -46,12 +46,12 @@ return (isalpha(c));
 int atoi_custom(const char *s)
 {
 int sign = 1;
-unsigned int result = 0;   
+unsigned int result = 0;
 if (*s == '-')
 {
 sign = -1;
 s++;
-}  
+}
 while (*s)
 {
 if (isdigit(*s))
