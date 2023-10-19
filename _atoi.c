@@ -1,5 +1,5 @@
 #include "shell.h"
-#include <ctype.h> // for isdigit function
+#include <ctype.h> /*** for isdigit function */
 
 /**
  * is_interactive - checks if the shell is in interactive mode
@@ -23,9 +23,9 @@ int is_delimiter(char c, const char *delim)
 while (*delim)
 {
 if (*delim++ == c)
-return 1;
+return (1);
 }
-return 0;
+return (0);
 }
 
 /**
@@ -35,7 +35,7 @@ return 0;
  */
 int is_alpha(int c)
 {
-return isalpha(c);
+return (isalpha(c));
 }
 
 /**
@@ -46,13 +46,12 @@ return isalpha(c);
 int atoi_custom(const char *s)
 {
 int sign = 1;
-unsigned int result = 0;
-    
+unsigned int result = 0;   
 if (*s == '-')
 {
 sign = -1;
 s++;
-}   
+}  
 while (*s)
 {
 if (isdigit(*s))
@@ -65,5 +64,5 @@ else
 }
 s++;
 }
-return (sign * result);
+return (sign *result);
 }
