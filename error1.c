@@ -26,7 +26,7 @@ return (-1); /** Overflow or underflow */
 else
 return (-1); /** Non-numeric character */
 }
-return (int)(result);
+return (result);
 }
 
 /**
@@ -93,7 +93,7 @@ return (count);
 }
 
 /**
- * convert_to_base - Convert a number to a specified base and return it 
+ * convert_to_base - Convert a number to a specified base and return it
  * as a string.
  * @num: The number to convert.
  * @base: The base to use for conversion.
@@ -106,7 +106,7 @@ static char buffer[50];
 char *ptr = &buffer[49];
 unsigned long n = num;
 char sign = 0;
-char *array = (flags & CONVERT_LOWERCASE) ? "0123456789abcdef" : 
+char *array = (flags & CONVERT_LOWERCASE) ? "0123456789abcdef" :
 "0123456789ABCDEF";
 
 if (!(flags & CONVERT_UNSIGNED) && num < 0)
@@ -127,7 +127,7 @@ if (sign)
 *--ptr = sign;
 }
 
-return ptr;
+return (ptr);
 }
 
 /**
