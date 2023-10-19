@@ -3,7 +3,8 @@
 
 int my_exit(info_t *info)
 {
-if (info->argv[1]) {
+if (info->argv[1])
+{
 int exit_code = _erratoi(info->argv[1]);
 if (exit_code == -1)
 {
@@ -34,7 +35,8 @@ dir = _getenv(info, "PWD=");
 else if (_strcmp(dir, "-") == 0)
 {
 dir = _getenv(info, "OLDPWD=");
-if (!dir) {
+if (!dir)
+{
 _puts(info->env->pwd);
 _putchar('\n');
 return (1);
@@ -43,7 +45,8 @@ _puts(dir);
 _putchar('\n');
 }
 
-if (chdir(dir) == -1) {
+if (chdir(dir) == -1)
+{
 perror("chdir");
 return (1);
 }
