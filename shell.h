@@ -13,3 +13,5 @@
 #include <errno.h>
 
 char *rl(void);
+
+#endif
