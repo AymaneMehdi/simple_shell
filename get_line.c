@@ -49,7 +49,8 @@ return (r);
 
 
 /**
- * get_input - Gets the next line of input from the user or command chain buffer.
+ * get_input - Gets the next line of input from the user or command
+ * chain buffer.
  * @info: The parameter structure.
  *
  * Return: The number of bytes read.
