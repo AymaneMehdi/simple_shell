@@ -101,7 +101,8 @@ if env_value != NULL
 {
 replace_string(&info->argv[i], _strdup(env_value));
 }
-else {
+else
+{
 replace_string(&info->argv[i], _strdup(""));
 }
 }
