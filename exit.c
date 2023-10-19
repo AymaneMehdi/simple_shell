@@ -10,7 +10,7 @@
  */
 char *my_strncpy(char *dest, const char *src, size_t n)
 {
-return strncpy(dest, src, n);
+return (strncpy(dest, src, n));
 }
 
 /**
@@ -23,16 +23,17 @@ return strncpy(dest, src, n);
  */
 char *my_strncat(char *dest, const char *src, size_t n)
 {
-return strncat(dest, src, n);
+return (strncat(dest, src, n));
 }
 
 /**
  * my_strchr - Locate the first occurrence of a character in a string.
  * @s: The string to search in.
  * @c: The character to locate.
- * Return: A pointer to the first occurrence of 'c' in 's', or NULL if not found.
+ * Return: A pointer to the first occurrence of 'c' in 's', or NULL
+ * if not found.
  */
 char *my_strchr(const char *s, int c)
 {
-return strchr(s, c);
+return (strchr(s, c));
 }
