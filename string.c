@@ -55,13 +55,13 @@ const char *starts_with(const char *haystack, const char *needle)
 while (*needle != '\0')
 {
 if (*needle != *haystack)
-return NULL;
+return (NULL);
 
 haystack++;
 needle++;
 }
 
-return haystack;
+return (haystack);
 }
 
 /**
@@ -87,5 +87,5 @@ src++;
 
 *dest = '\0';
 
-return ret;
+return (ret);
 }
