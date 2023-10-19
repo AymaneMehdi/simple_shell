@@ -21,7 +21,7 @@ return (environ);
 int _unsetenv(info_t *info, char *var)
 {
 if (!var)
-return 0;
+return (0);
 
 int success = unsetenv(var);
 if (success == 0)
