@@ -90,7 +90,8 @@ for (int i = 0; info->argv[i]; i++) {
 if (info->argv[i][0] == '$' && info->argv[i][1] != '\0') {
 char *var_name = &info->argv[i][1];
 char *env_value = _getenv(info, var_name);
-if (env_value != NULL) {
+if env_value != NULL
+{
 replace_string(&info->argv[i], _strdup(env_value));
 } else {
 replace_string(&info->argv[i], _strdup(""));
