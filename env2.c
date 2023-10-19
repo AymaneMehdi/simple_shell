@@ -8,7 +8,7 @@
  */
 char **get_environ(info_t *info)
 {
-    return environ;
+return (environ);
 }
 
 /**
@@ -20,15 +20,15 @@ char **get_environ(info_t *info)
  */
 int _unsetenv(info_t *info, char *var)
 {
-    if (!var)
-        return 0;
+if (!var)
+return 0;
 
-    int success = unsetenv(var);
-    if (success == 0)
-    {
-        info->env_changed = 1;
-    }
-    return success;
+int success = unsetenv(var);
+if (success == 0)
+{
+info->env_changed = 1;
+}
+return (success);
 }
 
 /**
@@ -42,13 +42,13 @@ int _unsetenv(info_t *info, char *var)
  */
 int _setenv(info_t *info, char *var, char *value)
 {
-    if (!var || !value)
-        return -1;
+if (!var || !value)
+return (-1);
 
-    int success = setenv(var, value, 1);
-    if (success == 0)
-    {
-        info->env_changed = 1;
-    }
-    return success;
+int success = setenv(var, value, 1);
+if (success == 0)
+{
+info->env_changed = 1;
+}
+return (success);
 }
