@@ -29,7 +29,8 @@ else if (buf[j] == ';')
 buf[j] = '\0';
 info->cmd_buf_type = CMD_CHAIN;
 }
-else {
+else
+{
 return 0;
 }
 
