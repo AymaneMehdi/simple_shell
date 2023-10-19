@@ -50,6 +50,8 @@ typedef struct liststr
 	struct liststr *next;
 } list_t;
 
+list_t *node_starts_with(list_t *list, const char *prefix, char delimiter);
+
 /**
  *struct passinfo - contains pseudo-arguements to pass into a function,
  *					allowing uniform prototype for function pointer struct
