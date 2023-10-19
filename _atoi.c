@@ -52,8 +52,7 @@ if (*s == '-')
 {
 sign = -1;
 s++;
-}
-    
+}   
 while (*s)
 {
 if (isdigit(*s))
@@ -62,10 +61,9 @@ result = result * 10 + (*s - '0');
 }
 else
 {
-// Handle non-digit characters
+/** Handle non-digit characters */
 }
 s++;
 }
-    
-return sign * result;
+return (sign * result);
 }
