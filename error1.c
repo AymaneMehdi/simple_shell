@@ -21,10 +21,10 @@ if (s[i] >= '0' && s[i] <= '9')
 result *= 10;
 result += (s[i] - '0');
 if (result > INT_MAX || result < INT_MIN)
-return -1; // Overflow or underflow
+return (-1); /** Overflow or underflow */
 }
 else
-return -1; // Non-numeric character
+return (-1); /** Non-numeric character */
 }
 return (int)result;
 }
