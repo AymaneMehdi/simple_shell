@@ -1,5 +1,5 @@
 #include "shell.h"
-#include <limits.h> // Include necessary libraries
+#include <limits.h> /** Include necessary libraries */
 
 /**
  * err_atoi - Convert a string to an integer with error handling.
@@ -26,7 +26,7 @@ return (-1); /** Overflow or underflow */
 else
 return (-1); /** Non-numeric character */
 }
-return (int)result;
+return (int)(result);
 }
 
 /**
@@ -89,11 +89,12 @@ count++;
 }
 }
 
-return count;
+return (count);
 }
 
 /**
- * convert_to_base - Convert a number to a specified base and return it as a string.
+ * convert_to_base - Convert a number to a specified base and return it 
+ * as a string.
  * @num: The number to convert.
  * @base: The base to use for conversion.
  * @flags: Argument flags.
@@ -105,7 +106,8 @@ static char buffer[50];
 char *ptr = &buffer[49];
 unsigned long n = num;
 char sign = 0;
-char *array = (flags & CONVERT_LOWERCASE) ? "0123456789abcdef" : "0123456789ABCDEF";
+char *array = (flags & CONVERT_LOWERCASE) ? "0123456789abcdef" : 
+"0123456789ABCDEF";
 
 if (!(flags & CONVERT_UNSIGNED) && num < 0)
 {
@@ -115,12 +117,10 @@ sign = '-';
 
 *ptr = '\0';
 
-do
-{
+do {
 *--ptr = array[n % base];
 n /= base;
-}
-while (n != 0);
+} while (n != 0);
 
 if (sign)
 {
