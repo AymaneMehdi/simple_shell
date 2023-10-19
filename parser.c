@@ -11,13 +11,13 @@ int is_cmd(info_t *info, char *path)
 {
 struct stat st;
 
-(void)info; // Unused parameter (info)
+(void)info; /** Unused parameter (info) */
 if (!path || stat(path, &st))
 return (0);
 
 if (st.st_mode & S_IFREG)
 {
-return (1); // Returns 1 if the file exists and is a regular file (executable)
+return (1);
 }
 return (0);
 }
