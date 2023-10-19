@@ -33,11 +33,11 @@ while (*env_ptr != NULL)
 if (_strncmp(*env_ptr, name, _strlen(name)) == 0)
 {
 char *value = *env_ptr + _strlen(name) + 1;
-return value;
+return (value);
 }
 env_ptr++;
 }
-return NULL;
+return (NULL);
 }
 
 /**
@@ -97,9 +97,9 @@ return (0);
  */
 int populate_env_list(info_t *info)
 {
-    /**No need to populate, environ is already populated.
-    /**The environment variables are stored in the global variable `environ`.
-    /**`environ` is an array of strings where each string has the format "NAME=VALUE".*/
+    /** No need to populate, environ is already populated. */
+    /** The environment variables are stored in the global variable `environ` */
+    /** `environ` is an array of strings where each string has the format "NAME=VALUE".*/
 info->env = NULL; /**Set to NULL since we are not using a linked list.*/
 return (0);
 }
