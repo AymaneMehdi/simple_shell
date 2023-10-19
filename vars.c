@@ -31,10 +31,10 @@ info->cmd_buf_type = CMD_CHAIN;
 }
 else
 {
-return 0;
+return (0);
 }
 *p = j;
-return 1;
+return (1);
 }
 
 /**
@@ -87,17 +87,17 @@ for (i = 0; i < 10; i++)
 {
 node = node_starts_with(info->alias, info->argv[0], '=');
 if (!node)
-return 0;
+return (0);
 free(info->argv[0]);
 p = _strchr(node->str, '=');
 if (!p)
-return 0;
+return (0);
 p = _strdup(p + 1);
 if (!p)
-return 0;
+return (0);
 info->argv[0] = p;
 }
-return 1;
+return (1);
 }
 
 /**
@@ -140,7 +140,7 @@ replace_string(&info->argv[i], _strdup(""));
 }
 }
 }
-return 0;
+return (0);
 }
 
 /**
@@ -154,5 +154,5 @@ int replace_string(char **old, char *new)
 {
 free(*old);
 *old = new;
-return 1;
+return (1);
 }
