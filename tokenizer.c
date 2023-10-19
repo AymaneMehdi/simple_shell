@@ -50,13 +50,10 @@ free(words[k]);
 free(words);
 return (NULL);
 }
-
 for (m = 0; m < k; m++)
 words[j][m] = str[i++];
-
 words[j][m] = '\0';
 }
-
 words[j] = NULL;
 return (words);
 }
@@ -86,23 +83,18 @@ str[i + 1] == delimiter)
 numwords++;
 }
 }
-
 if (numwords == 0)
 return (NULL);
-
 words = malloc((numwords + 1) * sizeof(char *));
 if (!words)
 return (NULL);
-
 for (i = 0, j = 0; j < numwords; j++)
 {
 while (str[i] == delimiter && str[i] != '\0')
 i++;
-
 k = 0;
 while (str[i + k] != delimiter && str[i + k] != '\0')
 k++;
-
 words[j] = malloc((k + 1) * sizeof(char));
 if (!words[j])
 {
@@ -111,13 +103,10 @@ free(words[k]);
 free(words);
 return (NULL);
 }
-
 for (m = 0; m < k; m++)
 words[j][m] = str[i++];
-
 words[j][m] = '\0';
 }
-
 words[j] = NULL;
 return (words);
 }
