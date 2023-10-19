@@ -71,9 +71,11 @@ j = len;
 int replace_alias(info_t *info)
 {
 list_t *node = node_starts_with(info->alias, info->argv[0], '=');
-if (node) {
+if (node)
+{
 char *p = _strchr(node->str, '=');
-if (p) {
+if (p)
+{
 replace_string(&info->argv[0], _strdup(p + 1));
 return 1;
 }
