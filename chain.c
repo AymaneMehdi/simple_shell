@@ -39,7 +39,8 @@ return 1;
 }
 
 /**
- * check_chain - checks if the shell should continue chaining based on the last status
+ * check_chain - checks if the shell should continue chaining based on
+ * the last status
  * @info: the parameter struct
  * @buf: the char buffer
  * @p: address of current position in buf
