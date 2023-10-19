@@ -90,8 +90,10 @@ return 0;
  * Return: 1 if replaced, 0 otherwise
  */
 int replace_vars(info_t *info) {
-for (int i = 0; info->argv[i]; i++) {
-if (info->argv[i][0] == '$' && info->argv[i][1] != '\0') {
+for (int i = 0; info->argv[i]; i++)
+{
+if (info->argv[i][0] == '$' && info->argv[i][1] != '\0')
+{
 char *var_name = &info->argv[i][1];
 char *env_value = _getenv(info, var_name);
 if env_value != NULL
