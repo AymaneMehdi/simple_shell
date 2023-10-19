@@ -9,8 +9,8 @@
  */
 void _eputs(char *str)
 {
-    if (str)
-        fprintf(stderr, "%s", str);
+if (str)
+fprintf(stderr, "%s", str);
 }
 
 /**
@@ -22,7 +22,7 @@ void _eputs(char *str)
  */
 int _eputchar(char c)
 {
-    return fputc(c, stderr);
+return fputc(c, stderr);
 }
 
 /**
@@ -35,7 +35,7 @@ int _eputchar(char c)
  */
 int _putfd(char c, int fd)
 {
-    return write(fd, &c, 1);
+return write(fd, &c, 1);
 }
 
 /**
@@ -47,7 +47,7 @@ int _putfd(char c, int fd)
  */
 int _putsfd(char *str, int fd)
 {
-    if (str)
-        return fprintf(fd == STDERR_FILENO ? stderr : stdout, "%s", str);
-    return 0;
+if (str)
+return fprintf(fd == STDERR_FILENO ? stderr : stdout, "%s", str);
+return (0);
 }
