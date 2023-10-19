@@ -9,7 +9,7 @@
 int my_history(info_t *info)
 {
 print_list(info->history);
-return 0;
+return (0);
 }
 
 /**
@@ -24,13 +24,13 @@ char *equal_sign = _strchr((char *)str, '=');
 
 if (equal_sign)
 {
-*equal_sign = '\0'; // Null terminate the string at the position of '='
+*equal_sign = '\0'; /**Null terminate the string at the position of '='*/
 int result = delete_node_at_index(&(info->alias),
 get_node_index(info->alias, node_starts_with(info->alias, str, -1)));
-*equal_sign = '='; // Restore the original string
-return result;
+*equal_sign = '='; /**Restore the original string*/
+return (result);
 }
-return 1;
+return (1);
 }
 
 /**
@@ -39,17 +39,18 @@ return 1;
  * @str: The string alias to add/update.
  * Return: 0 on success, 1 on error.
  */
-int set_alias(info_t *info, const char *str) {
+int set_alias(info_t *info, const char *str)
+{
 char *equal_sign = _strchr((char *)str, '=');
 
 if (equal_sign)
 {
-*equal_sign = '\0'; // Null terminate the string at the position of '='
+*equal_sign = '\0'; /**Null terminate the string at the position of '='*/
 unset_alias(info, str);
 *equal_sign = '=';
 return (add_node_end(&(info->alias), str, 0) == NULL);
 }
-return 1;
+return (1);
 }
 
 /**
@@ -62,7 +63,8 @@ int print_alias(list_t *node)
 if (node)
 {
 char *equal_sign = _strchr(node->str, '=');
-if (equal_sign) {
+if (equal_sign)
+{
 for (char *a = node->str; a <= equal_sign; a++)
 _putchar(*a);
 _putchar('\'');
