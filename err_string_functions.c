@@ -22,7 +22,7 @@ fprintf(stderr, "%s", str);
  */
 int _eputchar(char c)
 {
-return fputc(c, stderr);
+return (fputc(c, stderr));
 }
 
 /**
@@ -35,7 +35,7 @@ return fputc(c, stderr);
  */
 int _putfd(char c, int fd)
 {
-return write(fd, &c, 1);
+return (write(fd, &c, 1));
 }
 
 /**
@@ -48,6 +48,6 @@ return write(fd, &c, 1);
 int _putsfd(char *str, int fd)
 {
 if (str)
-return fprintf(fd == STDERR_FILENO ? stderr : stdout, "%s", str);
+return (fprintf(fd == STDERR_FILENO ? stderr : stdout, "%s", str));
 return (0);
 }
